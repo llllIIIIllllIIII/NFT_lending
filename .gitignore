@@ -33,7 +33,7 @@ out/
 cache/
 broadcast/
 *.dbg
-*.json
+
 
 # Hardhat / artifacts
 artifacts/
