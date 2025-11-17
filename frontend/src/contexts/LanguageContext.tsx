@@ -170,7 +170,7 @@ const translations = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguageState] = useState<Language>('zh')
+  const [language, setLanguageState] = useState<Language>('en')
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -179,6 +179,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       const saved = localStorage.getItem('language') as Language
       if (saved && (saved === 'zh' || saved === 'en')) {
         setLanguageState(saved)
+      } else {
+        // 如果沒有保存的語言設定,設置預設為英文
+        localStorage.setItem('language', 'en')
       }
     }
   }, [])
